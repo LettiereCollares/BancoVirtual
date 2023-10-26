@@ -1,0 +1,63 @@
+body {
+    background-color: rgb(34, 34, 34);  
+    color: white;
+    font-family: poppinsregular;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h1 {
+
+    font-size: 40px;
+    font-weight: 200;
+    color: coral;
+}
+
+h2 {
+    font-weight: 200;
+    line-height: 20px;
+    color: coral;
+    font-family: poppinsmedium;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    margin-top: 50px;
+}
+
+a {
+
+    top: 20px;
+    left: 20px;
+    color: #C56812;
+    border: 2px solid #C56812;
+    padding: 10px;
+    border-radius: 15px;
+    text-decoration: none;
+    z-index: 9999; /* Valor alto para garantir que o link fique acima de outros elementos */
+  }
+  
+  a:hover {
+    color: white;
+    background-color: #C56812;
+  }
+  
+  
+
+p {
+    line-height: 20px;
+    max-width: 500px;
+    font-family: poppinslight;
+}
+
+
+

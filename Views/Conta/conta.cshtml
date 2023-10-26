@@ -1,0 +1,36 @@
+@model BancoVirtual.Models.AccountViewModel
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styles/contstyle.css" rel="stylesheet">
+    <link href="styles/fonts.css" rel="stylesheet">
+   
+    <title>Criar Conta</title>
+</head>
+<body> 
+    <a href="@Url.Action("Index", "PaginaInicial")">&lt; Voltar</a>    
+    <h1>Criar Conta</h1>
+
+    <form method="post" action="@Url.Action("Criar", "Conta")">
+        <div>
+            <label asp-for="Balance">Saldo da Conta</label>
+                <input asp-for="Balance" name="Balance" type="number" step="0.01" required>
+            <span asp-validation-for="Balance" class="text-danger"></span>
+        </div>
+        <div>
+            <label asp-for="AccountType">Tipo de Conta</label>
+                <select asp-for="AccountType" name="AccountType" required>
+                <option value="Checking">Conta Corrente</option>
+                <option value="Savings">Conta Poupança</option>
+            </select>
+            <span asp-validation-for="AccountType" class="text-danger"></span>
+        </div>
+        <button type="submit">Criar Conta</button>
+
+    </form>
+</body>
+</html>

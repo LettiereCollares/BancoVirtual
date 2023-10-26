@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styles/estilo.css" rel="stylesheet">
+    <link href="styles/fonts.css" rel="stylesheet">
+
+    <title>Cadastro</title>
+</head>
+<body>
+    <div class="container">
+        <div class="form-image">
+            <img src="images/teamup.svg">
+        </div>
+        <div class="form">
+            @using (Html.BeginForm("Cadastrar", "Cadastro", FormMethod.Post))
+                {
+                <div class="form-header">
+                    <div class="title">
+                        <h1>Cadastre-se</h1>
+                    </div>
+                    <div class="login-button">
+                        <button><a href="@Url.Action("Index", "Home")">Entrar</a>
+                            <img src="images/Group.svg">
+                        </button>
+                    </div>
+                </div>
+                <div class="input-group">
+
+                    <div class="input-box">
+                        <label asp-for="NomeCompleto">Nome Completo</label>
+                            <input asp-for="NomeCompleto" id="nomecompleto" name="NomeCompleto" placeholder="Digite seu nomecompleto" required>
+                        <span asp-validation-for="NomeCompleto" class="text-danger"></span>
+                    </div>
+    
+                    <div class="input-box">
+                        <label asp-for="Endereco">Endereço</label>
+                            <input asp-for="Endereco" id="endereco" name="Endereco" placeholder="Digite seu Endereço" required>
+                        <span asp-validation-for="Endereco" class="text-danger"></span>
+                    </div>
+                    <div class="input-box">
+                        <label asp-for="CPF">CPF</label>
+                            <input asp-for="CPF" id="CPF" name="CPF" placeholder="Digite seu CPF" required>
+                        <span asp-validation-for="CPF" class="text-danger"></span>
+                    </div>
+                    <div class="input-box">
+                        <label asp-for="Email">E-mail</label>
+                            <input asp-for="Email" id="email" name="Email" type="email" placeholder="Digite seu e-mail" required>
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="input-box">
+                        <label asp-for="Password">Senha</label>
+                            <input asp-for="Password" id="password" name="Password" type="password" placeholder="Digite sua senha" required>
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                    <div class="input-box">
+                        <label asp-for="ConfirmPassword">Confirme sua Senha</label>
+                        <input asp-for="ConfirmPassword" id="confirmPassword" type="password" placeholder="Digite sua senha novamente" required>
+                        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                    </div>
+                    <div class="input-box">
+                        <label asp-for="Celular">Celular</label>
+                            <input asp-for="Celular" id="number" name="Celular" type="tel" placeholder="(xx) xxxx-xxxx" required>
+                        <span asp-validation-for="Celular" class="text-danger"></span>
+                    </div>
+
+
+                </div>
+                <div class="gender-inputs">
+                    <div class="gender-title">
+                        <h6>Gênero</h6>
+                    </div>
+                    <div class="gender-group">
+                          <div class="gender-input">
+                            <input id="male" type="radio" name="gender">
+                            <label for="male">Masculino</label>
+                        </div>
+
+                        <div class="gender-input">
+                            <input id="female" type="radio" name="gender">
+                            <label for="female">Feminino</label>
+                        </div>
+                        <div class="gender-input">
+                            <input id="others" type="radio" name="gender">
+                            <label for="others">Outros</label>
+                        </div>
+
+                        <div class="gender-input">
+                            <input id="none" type="radio" name="gender">
+                            <label for="none">Prefiro não dizer</label>
+                        </div>
+                    </div>
+                </div>
+                    <div class="continue-button" >
+                    @Html.AntiForgeryToken()
+                       <button type="submit">Cadastrar</button>
+                    </div>
+                    }
+                </div>
+        </div>
+    </div>
+</body>
+</html>

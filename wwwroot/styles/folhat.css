@@ -1,0 +1,78 @@
+/* Estilos específicos para a página de criação de conta */
+body {
+    background-color: rgb(34, 34, 34);
+    color: white;
+    font-family: poppinsregular;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1, h2 {
+    font-weight: 200;
+    color: coral;
+    text-align: center;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+.content {
+    text-align: center;
+    width: 100%;
+    max-width: 600px;
+    margin-top: 20px;
+}
+
+form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background: rgb(34, 34, 34);
+    border-radius: 10px;
+    box-shadow: 0px 10px 40px #C56812;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    width: 100%;
+    text-align: left;
+}
+
+input, select, button {
+    padding: 8px;
+    border: 1px solid #C56812;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    background: rgb(65, 64, 64);
+    color: wheat;
+    font-size: 14px;
+    outline: none;
+}
+
+button {
+    padding: 16px 0;
+    margin-top: 25px;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    font-weight: bold;
+    background-color: #C56812;
+    color: beige;
+    cursor: pointer;
+    font-family: poppinsbold;
+    width: 100%;
+    box-shadow: 0px 10px 40px -12px #C56812;
+}
+
+    button:hover {
+        background-color: white;
+        color: #C56812;
+    }

@@ -1,0 +1,49 @@
+﻿body {
+    width: 94%;
+    height: 89vh;
+
+    background-color: rgba(34, 34, 34);
+    font-family: poppinsregular;
+}
+.extrato-container {
+    text-align: center;
+    padding: 20px;
+}
+a {
+    top: 20px;
+    left: 20px;
+    color: #C56812;
+    border: 2px solid #C56812;
+    padding: 10px;
+    border-radius: 15px;
+    text-decoration: none;
+    z-index: 9999; /* Valor alto para garantir que o link fique acima de outros elementos */
+}
+
+    a:hover {
+        color: white;
+        background-color: #C56812;
+    }
+  
+
+.titulo-pagina {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    border: 1px solid #ccc;
+}
+
+    .table th, .table td {
+        padding: 10px;
+        border: 1px solid #ccc;
+    }
+
+    .table th {
+        background-color: white;
+        font-weight: bold;
+    }

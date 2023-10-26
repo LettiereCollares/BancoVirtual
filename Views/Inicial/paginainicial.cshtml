@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link href="styles/folha.css" rel="stylesheet">
+      <link href="styles/fonts.css" rel="stylesheet">
+      <link href="styles/media.css" rel="stylesheet">
+<head>
+    <title>BVB - Banco Virtual Brasileiro</title>
+</head>
+<body>
+    <header>
+      <p>Página Inicial</p>
+        <p>Olá, @ViewBag.CustomerName</p>
+        <a href="@Url.Action("Index", "Home")">Logout
+          <img src="images/Group.svg"> 
+        </a>
+    </header>
+    <main>
+      <div class="conteudo">
+        <h1>Seja Bem vindo ao Banco Virtual Brasileiro</h1>
+        <h2>O banco virtual que entende suas necessidades!</h2>
+        <p>Tudo oque você precisa pra ficar no controle da sua vida financeira tem
+          no site do Banco Virtual Brasileiro.
+        </p>    
+        </div>
+        <div class="conteudo1">
+        <h2><a href="@Url.Action("Index", "Transferencia")">Transferências</a></h2>
+        <p>Transfira dinheiro com rapidez e segurança para contas bancárias de terceiros.</p>
+        <h2><a href="@Url.Action("Index", "Extrato")">Extrato</a></h2>
+        <p>O extrato de transferências mostra suas transações de transferência, incluindo datas, origens, destinos e valores. É uma ferramenta para acompanhar suas finanças.</p>
+
+      </div>
+      <div class="conteudo2">
+        <h2><a href="@Url.Action("Index", "Conta")">Crie Sua Conta</a></h2>
+        <p>Crie sua conta no banco com toda segurança oferecida.</p>
+
+    </div>
+    </div>
+    </main>
+    <footer>
+        <p>Todos os direitos reservados &copy; BVB - Banco Virtual Brasileiro</p>
+    </footer>
+</body>
+</html>

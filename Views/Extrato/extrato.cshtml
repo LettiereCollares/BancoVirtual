@@ -1,0 +1,42 @@
+﻿@model List<BancoVirtual.Models.ExtratoModel>
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styles/folhaex.css" rel="stylesheet"> 
+    <link href="styles/fonts.css" rel="stylesheet">
+
+    <title>Extrato</title>
+</head>
+
+<body> 
+    <a href="@Url.Action("Index", "PaginaInicial")">&lt; Voltar</a>    
+    <h1>Extrato de Transferências</h1></br>
+   
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID do Remetente</th>
+                <th>Data</th>
+                <th>Descrição</th>
+                <th>Valor</th>
+                <th>ID do Destinátario</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var transferencia in Model)
+            {
+                    <tr>
+                        <td>@transferencia.AccountId</td>
+                        <td>@transferencia.Date</td>
+                        <td>@transferencia.TransactionType</td>
+                        <td>@transferencia.Amount</td>
+                        <td>@transferencia.OtherAccount</td>
+                    </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>

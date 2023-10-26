@@ -1,0 +1,64 @@
+@model BancoVirtual.Models.UserLoginViewModel
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styles/style.css" rel="stylesheet">
+    <link href="styles/fonts.css" rel="stylesheet">
+    <title>BVB - Banco Virtual Brasileiro</title>
+</head>
+<body>
+    <header>
+        <p>Página Inicial</p>
+        <a href="@Url.Action("Index", "Cadastro")">Fazer Cadastro
+            <img src="images/Group.svg">
+        </a>
+    </header>
+    <main>
+        <aside>
+            <h1>O banco virtual que entende suas necessidades!</h1> 
+            <p>Tudo o que você precisa para ficar no controle da sua vida financeira tem no site do Banco Virtual Brasileiro.</p>
+            <h2>Transferências</h2>
+            <p>Transfira dinheiro com rapidez e segurança para contas bancárias de terceiros.</p>
+            <p>Conte com nossa plataforma confiável para garantir que seus fundos cheguem ao destino desejado de forma ágil e protegida.</p>
+            <h2>Saques</h2>
+            <p>Acesso conveniente em caixas eletrônicos e parceiros autorizados, priorizando sua segurança.</p>
+            <h2>Depósitos</h2>
+            <p>Depósitos fáceis e seguros em caixas eletrônicos ou por imagem no aplicativo, protegendo seus dados.</p>
+            <h2>Investimentos</h2>
+            <p>Construa seu futuro financeiro com nossas opções personalizadas de investimento.</p>
+            <h2>Cartão de Crédito</h2>
+            <p>Descubra a liberdade e segurança dos nossos cartões exclusivos.</p>
+        </aside>
+        <div class="login">
+            <div class="card-login">
+                @using (Html.BeginForm("Login", "Home", FormMethod.Post))
+                {
+                        <h1>Login</h1>
+                        <div class="textfield">
+                                 <label asp-for="Email">E-mail</label>
+                                <input asp-for="Email" id="email" name="Email" type="email" placeholder="Digite seu e-mail" required>
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                        <div class="textfield">
+                                <label asp-for="Password">Senha</label>
+                                <input asp-for="Password" id="password" name="Password" type="password" placeholder="Digite sua senha" required>
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+                        <button type="submit" class="btn-login">Login</button>
+                }
+                @if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+                {
+                        <div class="alert alert-danger">@ViewBag.ErrorMessage</div>
+                }
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>Todos os direitos reservados &copy; BVB - Banco Virtual Brasileiro</p>
+    </footer>
+</body>
+</html>

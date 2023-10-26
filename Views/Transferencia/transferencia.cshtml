@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styles/folhat.css" rel="stylesheet">
+    <link href="styles/fonts.css" rel="stylesheet">
+    <link href="styles/styles.css" rel="stylesheet"> 
+    <title>Transferência</title>
+</head>
+<body>
+    <header class="top-header">
+       <a href="@Url.Action("Index", "PaginaInicial")">&lt; Voltar</a>    
+        <p>Seu Saldo = R$@ViewBag.saldo</p>
+    </header>
+    <h1>PIX de Transferência</h1>
+    <h2>Transfira seu dinheiro de forma rápida e segura</h2>
+    <form method="post" action="@Url.Action("RealizarTransferencia", "Transferencia")">
+        <label for="id">Chave do PIX(ID):   </label>
+        <input type="text" id="id" name="ID" placeholder="Ex: 3"><br>
+    
+        <label for="valor">Valor da transferência:</label>
+        <input type="number" id="valor" name="valor" placeholder="R$"><br>
+    
+        <button class="enviar">Enviar</button>
+    </form>
+</body>
+</html>
