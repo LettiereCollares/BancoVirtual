@@ -16,11 +16,35 @@ namespace BancoVirtual.Controllers
             _configuration = configuration;
         }
 
-        public IActionResult Index()
+        private decimal ObterSaldoUsuarioLogado(MySqlConnection connection, int userId)
         {
-            // Lógica do controlador aqui, se necessário
+            string query = "SELECT Balance FROM Accounts WHERE UserId = @UserId";
+            using MySqlCommand cmd = new MySqlCommand(query, connection);
+            cmd.Parameters.AddWithValue("@UserId", userId);
+
+            var saldo = cmd.ExecuteScalar();
+            ViewBag.Saldo = saldo;
+            return (saldo is DBNull) ? 0 : Convert.ToDecimal(saldo);
+        }
+
+        public IActionResult Index([FromServices] IHttpContextAccessor httpContextAccessor)
+        {
+            var userId = httpContextAccessor.HttpContext.Session.GetInt32("UserId");
+
+            if (userId.HasValue)
+            {
+                var connectionString = _configuration.GetConnectionString("DefaultConnection");
+
+                using MySqlConnection connection = new MySqlConnection(connectionString);
+                connection.Open();
+
+                decimal saldo = ObterSaldoUsuarioLogado(connection, userId.Value);
+                ViewBag.Saldo = saldo;
+            }
+
             return View("~/Views/Transferencia/transferencia.cshtml");
         }
+
 
         [HttpPost]
         public IActionResult RealizarTransferencia(TransferenciaViewModel model, [FromServices] IHttpContextAccessor httpContextAccessor)
@@ -92,9 +116,6 @@ namespace BancoVirtual.Controllers
                                     AtualizarSaldos(remetenteUserId.Value, destinatarioUserId, remetenteAccountId, destinatarioAccountId, model.Valor, connection);
                                     transaction.Commit();
 
-                                    decimal saldo = ObterSaldo(remetenteAccountId, connection);
-
-                                    ViewBag.Saldo = saldo;
 
                                     
 
